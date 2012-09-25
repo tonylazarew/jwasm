@@ -26,7 +26,7 @@
 
 /* v2.03: create weak externals for ALIAS symbols.
  * Since the syntax of the ALIAS directive requires
- * 2 names and, OTOH, the ELF implementation of weak 
+ * 2 names and, OTOH, the ELF implementation of weak
  * externals has no "default resolution", the usefullness
  * of this option is questionable. Additionally, there's
  * the "EXTERN <name> (<altname>)" syntax, which also allows
@@ -714,7 +714,7 @@ static void set_shstrtab_values( void )
             p += strlen( p ) + 1;
         }
     }
-    myassert( size == p - internal_segs[SHSTRTAB_IDX].data );
+    myassert( size == (void *)p - internal_segs[SHSTRTAB_IDX].data );
     DebugMsg(("set_shstrtab_values: size=%X\n", size));
     return;
 }
