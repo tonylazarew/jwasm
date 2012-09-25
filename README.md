@@ -25,15 +25,15 @@ MASM -EP compatibility
 ----------------------
 
 This fork was fixed to ignore any assembly passes other than the preprocessor
-pass when <-EP> option was given. Original JWasm would go forward and try to
+pass when `-EP` option was given. Original JWasm would go forward and try to
 create the object file which is not what MASM does.
 
-Also <.err> file generation was suppressed for <-EP> since this option usually
+Also `.err` file generation was suppressed for `-EP` since this option usually
 implies feeding the preprocessed code through some pipe and additional files are
 not wanted and even may do bad.
 
-If you use <-eq> option with <-EP> this will allow to use JWasm as a _totally
+If you use `-eq` option with `-EP` this will allow to use JWasm as a _totally
 forgiving_ preprocessor. This means that while no errors are reported, JWasm
-return code will also be <0>. That's because if you suppress errors on screen
-and do not write them to <.err> file, there's no good in seeing the build fail
+return code will also be `0`. That's because if you suppress errors on screen
+and do not write them to `.err` file, there's no good in seeing the build fail
 with no error messages.
