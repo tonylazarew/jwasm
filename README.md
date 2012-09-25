@@ -1,10 +1,10 @@
 jwasm
 =====
 
-Fork of JWasm by http://www.japheth.de with customizations. See Readme.txt for
-details on the original JWasm.
+Fork of JWasm by http://www.japheth.de with customizations. See `Readme.txt`
+for details on the original JWasm.
 
-These customizations are mostly aimed at syncing JWasm and MASM preprocessors
+These customizations are mostly aimed at syncing JWasm and MASM preprocessors'
 behavior and making it possible to easily use JWasm preprocessor instead of
 MASM on platforms other than Windows.
 
@@ -21,6 +21,9 @@ Or
 
 to build a version with debug features.
 
+**NOTE:** If you're running Xcode 4.3 and newer, you need Command Line Tools
+in order to build this project.
+
 MASM -EP compatibility
 ----------------------
 
@@ -32,7 +35,7 @@ Also `.err` file generation was suppressed for `-EP` since this option usually
 implies feeding the preprocessed code through some pipe and additional files are
 not wanted and even may do bad.
 
-If you use `-eq` option with `-EP` this will allow to use JWasm as a _totally
+If you use `-eq` option with `-EP` then JWasm will behave as a _totally
 forgiving_ preprocessor. This means that while no errors are reported, JWasm
 return code will also be `0`. That's because if you suppress errors on screen
 and do not write them to `.err` file, there's no good in seeing the build fail
