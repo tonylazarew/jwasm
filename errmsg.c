@@ -137,7 +137,8 @@ static void PrtMsg( int severity, int msgnum, va_list args1, va_list args2 )
         write_logo();
 #endif
     /* open .err file if not already open and a name is given */
-    if( CurrFile[ERR] == NULL && CurrFName[ERR] != NULL ) {
+    if ( CurrFile[ERR] == NULL && CurrFName[ERR] != NULL
+         && Options.preprocessor_stdout == FALSE ) {
         CurrFile[ERR] = fopen( CurrFName[ERR], "w" );
         if( CurrFile[ERR] == NULL ) {
             /* v2.06: no fatal error anymore if error file cannot be written */

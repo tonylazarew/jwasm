@@ -661,7 +661,7 @@ static void ModulePassInit( void )
             /* ignore -m switch for 64-bit formats.
              * there's no other model than FLAT possible.
              */
-            model = MODEL_FLAT; 
+            model = MODEL_FLAT;
             if ( ModuleInfo.header_format == HFORMAT_WIN64 ) {
                 if ( ModuleInfo.langtype == LANG_NONE ) {
                     ModuleInfo.langtype = LANG_FASTCALL;
@@ -1217,7 +1217,8 @@ static void open_files( void )
     }
 
     /* open OBJ file */
-    if ( Options.syntax_check_only == FALSE ) {
+    if ( Options.syntax_check_only == FALSE
+         && Options.preprocessor_stdout == FALSE ) {
         CurrFile[OBJ] = fopen( CurrFName[OBJ], "wb" );
         if( CurrFile[OBJ] == NULL ) {
             DebugMsg(("open_files(): cannot open object file, fopen(\"%s\") failed\n", CurrFName[OBJ] ));
@@ -1492,7 +1493,8 @@ int EXPQUAL AssembleModule( const char *source )
             //scan_globals();
             /* set index field in externals */
             set_ext_idx();
-            if ( Options.syntax_check_only == FALSE )
+            if ( Options.syntax_check_only == FALSE
+                 && Options.preprocessor_stdout == FALSE )
                 write_to_file = TRUE;
 
             if ( write_to_file && ( Options.output_format == OFORMAT_OMF ) ) {
@@ -1534,6 +1536,10 @@ int EXPQUAL AssembleModule( const char *source )
             EmitWarn( 2, ASSEMBLY_PASSES, Parse_Pass+1 );
 #ifdef DEBUG_OUT
         if ( Options.max_passes && Parse_Pass == (Options.max_passes - 1) )
+            break;
+
+        /* only do pass one for -EP, like MASM does. */
+        if ( Parse_Pass == PASS_1 && Options.preprocessor_stdout == TRUE )
             break;
 #endif
         if ( Options.line_numbers ) {
