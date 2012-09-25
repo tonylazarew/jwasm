@@ -1621,5 +1621,10 @@ done:
 #endif
     AssembleFini();
     DebugMsg(("AssembleModule exit\n"));
+
+    /* Not reporting defective state back if -EP and -eq are in effect. */
+    if ( Options.no_error_disp == TRUE && Options.preprocessor_stdout == TRUE )
+        return( 1 );
+
     return( ModuleInfo.g.error_count == 0 );
 }
