@@ -108,8 +108,9 @@ struct tmitem {
 static const struct tmitem tmtab[] = {
     /* @Version contains the Masm compatible version */
     /* v2.06: value of @Version changed to 800 */
+    /* tonylazarew: @Version changed to 1000 */
     //{"@Version",  "615", NULL },
-    {"@Version",  "800", NULL },
+    {"@Version",  "1000", NULL },
     {"@Date",     szDate, NULL },
     {"@Time",     szTime, NULL },
     {"@FileName", ModuleInfo.name, NULL },
