@@ -69,7 +69,7 @@ struct global_options Options = {
     /* debug_symbols    */          0,
     /* floating_point   */          FPO_NO_EMULATION,
 
-    /* error_limit      */          50,
+    /* error_limit      */          -1,
     /* no error display */          FALSE,
     /* warning_level    */          2,
     /* warning_error    */          FALSE,

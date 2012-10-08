@@ -13,7 +13,7 @@
 "-C<p|u|x>\0"       "Set OPTION CASEMAP: p=NONE, u=ALL,\0"
 "\0"                "x=NOTPUBLIC (default).\0"
 "-D<name>[=text]\0" "Define text macro\0"
-"-e<number>\0"      "Set error limit number (default=50)\0"
+"-e<number>\0"      "Set error limit number (no limit by default)\0"
 "-EP\0"             "Output preprocessed listing to stdout\0"
 "-eq\0"             "don't display error messages\0"
 #if DLLIMPORT
