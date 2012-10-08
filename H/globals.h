@@ -188,7 +188,8 @@ typedef enum {
  EMPTY = -2,
  ERROR = -1,
  NOT_ERROR = 0,
- STRING_EXPANDED = 1
+ STRING_EXPANDED = 1,
+ IGNORE_LINE = 2
 } ret_code;
 
 enum {

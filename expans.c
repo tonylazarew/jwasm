@@ -542,7 +542,7 @@ int RunMacro( struct dsym *macro, int idx, struct asm_tok tokenarray[], char *ou
      * Hence this functionality has been moved to ExpandToken().
      */
     addprefix = FALSE;
-    if ( macro->sym.isfunc == FALSE && 
+    if ( macro->sym.isfunc == FALSE &&
 #if MACROLABEL
         macro->sym.label == FALSE &&
 #endif
@@ -1318,6 +1318,11 @@ ret_code ExpandLine( char *string, struct asm_tok tokenarray[] )
                         count = i; /* don't expand the symbol name */
                     }
                 }
+            } else if ( tokenarray[i].tokval == T_ECHO &&
+                        Options.preprocessor_stdout == TRUE ) {
+                /* Do not print ECHO and %OUT lines to stdout when called with
+                 * -EP flag. */
+                return( IGNORE_LINE );
             } else if ( flags & DF_NOEXPAND ) {
                 /* [ELSE]IF[N]DEF, ECHO, FOR[C]
                  * .[NO|X]CREF, INCLUDE */
