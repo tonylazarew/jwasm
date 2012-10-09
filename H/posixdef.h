@@ -18,12 +18,12 @@
 char *_fullpath( char *, const char *, size_t );
 
 #define _MAX_DRIVE      48      /*  maximum length of node name w/ '\0' */
-#define _MAX_DIR        256     /*  maximum length of subdirectory      */
-#define _MAX_FNAME      48      /*  maximum length of a file name       */
+#define _MAX_DIR        512     /*  maximum length of subdirectory      */
+#define _MAX_FNAME      128     /*  maximum length of a file name       */
 #define _MAX_EXT        48      /*  maximum length of a file extension  */
 
 #ifndef _MAX_PATH
- #define _MAX_PATH      256     /*  maximum length of path name         */
+ #define _MAX_PATH      512     /*  maximum length of path name         */
 #endif
 
 
